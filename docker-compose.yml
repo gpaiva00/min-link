@@ -45,6 +45,7 @@ services:
     environment:
       - NEXT_PUBLIC_DATABASE_URL=${NEXT_PUBLIC_DATABASE_URL}
       - NEXT_PUBLIC_UPSTASH_REDIS_REST_URL=${NEXT_PUBLIC_UPSTASH_REDIS_REST_URL}
+      - NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN=${NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN}
     depends_on:
       postgres:
         condition: service_healthy
