@@ -35,11 +35,21 @@ export const metadata: Metadata = {
     title: "minLink - Encurtador de URL Gratuito",
     description: "Encurte suas URLs de forma rápida, segura e gratuita.",
     siteName: "minLink",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "minLink - Encurtador de URL Gratuito",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "minLink - Encurtador de URL Gratuito",
-    description: "Encurte suas URLs de forma rápida, segura e gratuita.",
+    description: "Encurte suas URLs de forma rápida, segura e gratuita. Compartilhe links mais limpos e acompanhe estatísticas básicas.",
+    images: ["/og.png"],
   },
 };
 
