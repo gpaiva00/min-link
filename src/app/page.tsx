@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { normalizeUrl, copyToClipboard } from "@/lib/utils";
-import { CheckIcon, DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
+import { normalizeUrl } from "@/lib/utils";
+import { DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
 
 interface ShortenResponse {
   success: boolean;
