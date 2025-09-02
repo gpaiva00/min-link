@@ -205,6 +205,28 @@ Obtém estatísticas de um link.
 - Sanitização de dados
 - Headers de segurança
 
+### ⚠️ Configuração Segura de Credenciais
+
+**IMPORTANTE**: Nunca commite credenciais reais no repositório!
+
+1. **Use sempre variáveis de ambiente**: Todas as credenciais devem estar em arquivos `.env` ou `.env.local`
+2. **Verifique o .gitignore**: Certifique-se que `.env` está listado no `.gitignore`
+3. **Revogue credenciais expostas**: Se credenciais foram commitadas acidentalmente:
+   - Revogue imediatamente no serviço (Neon DB, Upstash, etc.)
+   - Gere novas credenciais
+   - Limpe o histórico do Git se necessário
+4. **Use .env.example**: Mantenha um template sem valores reais
+5. **Configure CI/CD**: Use secrets do GitHub/Vercel para deploy
+
+**Exemplo de .env seguro**:
+```env
+# ✅ Correto - usando variáveis
+NEXT_PUBLIC_DATABASE_URL=${DATABASE_URL}
+
+# ❌ Errado - credenciais hardcoded
+NEXT_PUBLIC_DATABASE_URL="postgresql://user:pass@host/db"
+```
+
 ## 📝 Licença
 
 MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
