@@ -222,8 +222,8 @@ MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
 Se você encontrar algum problema ou tiver dúvidas:
 
 - Abra uma [issue](https://github.com/seu-usuario/min-link/issues)
-- Entre em contato: seu-email@exemplo.com
+- Entre em contato: gabrielalvesdepaiva@icloud.com
 
 ---
 
-Feito com ❤️ usando Next.js e TypeScript
+Feito com ❤️ por Gabriel Paiva
