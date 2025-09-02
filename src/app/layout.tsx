@@ -6,28 +6,39 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MinLink - Encurtador de URL Gratuito",
+  title: "minLink - Encurtador de URL Gratuito",
   description:
     "Encurte suas URLs de forma rápida, segura e gratuita. Compartilhe links mais limpos e acompanhe estatísticas básicas.",
   keywords: "encurtador de url, link curto, url shortener, compartilhar links",
-  authors: [{ name: "MinLink" }],
-  creator: "MinLink",
-  publisher: "MinLink",
+  authors: [{ name: "Gabriel Paiva" }],
+  creator: "minLink",
+  publisher: "minLink",
   robots: "index, follow",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: process.env.NEXT_PUBLIC_APP_URL,
-    title: "MinLink - Encurtador de URL Gratuito",
+    title: "minLink - Encurtador de URL Gratuito",
     description: "Encurte suas URLs de forma rápida, segura e gratuita.",
-    siteName: "MinLink",
+    siteName: "minLink",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MinLink - Encurtador de URL Gratuito",
+    title: "minLink - Encurtador de URL Gratuito",
     description: "Encurte suas URLs de forma rápida, segura e gratuita.",
   },
 };
@@ -57,26 +68,14 @@ export default function RootLayout({
       >
         <header className="">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center">
-                <a href="/" className="text-2xl font-bold text-primary-500">
-                  minLink
-                </a>
-              </div>
-              {/* <nav className="hidden md:flex space-x-8">
-                <a
-                  href="/privacy-policy"
-                  className="text-gray-600 hover:text-primary-600 transition-colors"
-                >
-                  Privacidade
-                </a>
-                <a
-                  href="/terms-of-service"
-                  className="text-gray-600 hover:text-primary-600 transition-colors"
-                >
-                  Termos
-                </a>
-              </nav> */}
+            <div className="flex justify-end items-center h-16">
+              <a
+                href="/"
+                className="text-2xl flex gap-2 items-center font-bold text-primary-500"
+              >
+                <img src="/logo.png" className="w-6 h-6" />
+                minLink
+              </a>
             </div>
           </div>
         </header>
@@ -84,7 +83,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         <footer className="mt-auto">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} minLink. Todos os direitos
@@ -92,13 +91,13 @@ export default function RootLayout({
               </div>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <a
-                  href="/privacy-policy"
+                  href="/privacy"
                   className="text-gray-500 hover:underline text-sm"
                 >
                   Política de Privacidade
                 </a>
                 <a
-                  href="/terms-of-service"
+                  href="/terms"
                   className="text-gray-500 hover:underline text-sm"
                 >
                   Termos de Uso
