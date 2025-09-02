@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import {
   CopyIcon,
   CheckIcon,
-  TriangleAlertIcon,
   ShieldIcon,
   ExternalLinkIcon,
   ShieldAlertIcon,
