@@ -103,7 +103,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
           {/* Link Details */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center space-x-2 mb-2">
-              <h2 className="text-lg font-semibold text-green-100 truncate">
+              <h2 className="text-lg font-semibold text-gray-50 truncate">
                 {link.title || domain}
               </h2>
               <span
@@ -124,7 +124,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
               </div>
               <button
                 onClick={handleCopyShortUrl}
-                className="btn-primary transition-all duration-200 space-x-2"
+                className="btn-primary transition-all w-40 duration-200 space-x-2"
               >
                 {copied ? (
                   <>
