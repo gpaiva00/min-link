@@ -154,7 +154,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
       </div>
 
       {/* Ad Space */}
-      <div className="card p-6 mb-8 text-center bg-gray-50">
+      {/* <div className="card p-6 mb-8 text-center bg-gray-50">
         <p className="text-sm text-gray-500 mb-4">Publicidade</p>
         <div className="bg-white border-2 border-dashed border-gray-300 rounded-lg p-8">
           <p className="text-gray-400 text-sm">
@@ -163,17 +163,8 @@ export default function PreviewPage({ params }: PreviewPageProps) {
           <p className="text-gray-400 text-xs mt-2">
             (AdSense ou outro provedor)
           </p>
-          {/* 
-            Aqui você pode inserir o código do AdSense:
-            <ins className="adsbygoogle"
-                 style={{display: 'block'}}
-                 data-ad-client="ca-pub-XXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-          */}
         </div>
-      </div>
+      </div> */}
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
