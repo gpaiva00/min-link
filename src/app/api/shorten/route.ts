@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
 
     // Create link in database
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-    const shortUrl = `${baseUrl}/${code}`;
+    const shortUrl = `${baseUrl}/go/${code}`;
 
     const link = await prisma.link.create({
       data: {
