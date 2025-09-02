@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 w-full text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-500/80 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-gray-300 text-gray-700 bg-white hover:bg-gray-300/90 focus:ring-primary-500;
+  }
+  
+  .input {
+    @apply block w-full p-4 text-gray-800 border bg-gray-50 rounded-lg border-zinc-800 shadow-sm placeholder-gray-500 focus:outline-none focus:ring-primary-500 focus:ring-2 focus:border-primary-500 sm:text-sm;
+  }
+  
+  .card {
+    @apply bg-card-background rounded-2xl shadow-md border border-zinc-800 p-8;
+  }
+  
+  .alert {
+    @apply p-4 rounded-md;
+  }
+  
+  .alert-error {
+    @apply alert bg-red-50 text-red-800 border border-red-200;
+  }
+  
+  .alert-success {
+    @apply alert bg-primary-500/50 border border-primary-500/10;
+  }
+  
+  .alert-warning {
+    @apply alert bg-yellow-50 text-yellow-800 border border-yellow-200;
+  }
+  
+  .alert-info {
+    @apply alert bg-blue-50 text-blue-800 border border-blue-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Focus visible for better accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

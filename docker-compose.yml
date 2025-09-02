@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Banco de dados PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: minlink-postgres
+    environment:
+      POSTGRES_DB: minlink
+      POSTGRES_USER: minlink
+      POSTGRES_PASSWORD: minlink123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U minlink"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis para cache
+  redis:
+    image: redis:7-alpine
+    container_name: minlink-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Aplicação Next.js (opcional, para produção)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minlink-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_DATABASE_URL=${NEXT_PUBLIC_DATABASE_URL}
+      - NEXT_PUBLIC_UPSTASH_REDIS_REST_URL=${NEXT_PUBLIC_UPSTASH_REDIS_REST_URL}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: minlink-network
