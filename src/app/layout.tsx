@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-9285587738161693" />
         <script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           async
