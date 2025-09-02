@@ -116,7 +116,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
                 {isSecure ? "Seguro" : "Não seguro"}
               </span>
             </div>
-            <div className="space-x-4 flex flex-row items-center mb-4">
+            <div className="gap-4 flex flex-col sm:flex-row items-center mb-4">
               <div className="bg-gray-200 rounded-lg p-4 w-full">
                 <p className="text-sm font-mono text-gray-800 break-all">
                   {link.shortUrl || `${window.location.origin}/${code}`}
@@ -124,7 +124,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
               </div>
               <button
                 onClick={handleCopyShortUrl}
-                className="btn-primary transition-all w-40 duration-200 space-x-2"
+                className="btn-primary transition-all sm:w-40 duration-200 space-x-2"
               >
                 {copied ? (
                   <>
@@ -140,7 +140,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
               </button>
             </div>
 
-            <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center sm:gap-4 text-sm text-gray-500">
               <span>Domínio: {domain}</span>
               <span>•</span>
               <span>Cliques: {link.clicks}</span>
