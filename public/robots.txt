@@ -1,0 +1,38 @@
+# Robots.txt for minLink - URL Shortener
+# https://minlink.vercel.app
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /preview/
+Disallow: /_next/
+Disallow: /admin/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://minlink.vercel.app/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /preview/
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /preview/
+Crawl-delay: 1
+
+# Block malicious bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

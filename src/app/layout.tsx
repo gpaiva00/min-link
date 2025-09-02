@@ -6,17 +6,53 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "minLink - Encurtador de URL Gratuito",
+  title: {
+    default: "minLink - Encurtador de URL Gratuito e Seguro",
+    template: "%s | minLink",
+  },
   description:
-    "Encurte suas URLs de forma rápida, segura e gratuita. Compartilhe links mais limpos e acompanhe estatísticas básicas.",
-  keywords: "encurtador de url, link curto, url shortener, compartilhar links",
-  authors: [{ name: "Gabriel Paiva" }],
-  creator: "minLink",
+    "Encurte suas URLs de forma rápida, segura e gratuita com o minLink. Compartilhe links mais limpos, acompanhe estatísticas detalhadas de cliques, geolocalização e analytics avançados. Proteção anti-spam e performance otimizada.",
+  keywords: [
+    "encurtador de url",
+    "link curto",
+    "url shortener",
+    "compartilhar links",
+    "analytics de links",
+    "estatísticas de cliques",
+    "geolocalização",
+    "proteção anti-spam",
+    "redis cache",
+    "cloudflare turnstile",
+    "qr code generator",
+    "marketing digital",
+    "rastreamento de links",
+    "minlink",
+  ],
+  authors: [{ name: "Gabriel Paiva", url: "https://github.com/gpaiva00" }],
+  creator: "Gabriel Paiva",
   publisher: "minLink",
-  robots: "index, follow",
+  category: "Technology",
+  classification: "Web Application",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_APP_URL,
+    languages: {
+      "pt-BR": process.env.NEXT_PUBLIC_APP_URL,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -26,30 +62,72 @@ export const metadata: Metadata = {
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
+    other: [
+      {
+        rel: "android-chrome-192x192",
+        url: "/android-chrome-192x192.png",
+      },
+      {
+        rel: "android-chrome-512x512",
+        url: "/android-chrome-512x512.png",
+      },
+    ],
   },
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: process.env.NEXT_PUBLIC_APP_URL,
-    title: "minLink - Encurtador de URL Gratuito",
-    description: "Encurte suas URLs de forma rápida, segura e gratuita.",
+    title: "minLink - Encurtador de URL Gratuito e Seguro",
+    description:
+      "Encurte suas URLs de forma rápida, segura e gratuita com o minLink. Compartilhe links mais limpos, acompanhe estatísticas detalhadas de cliques, geolocalização e analytics avançados. Proteção anti-spam e performance otimizada.",
     siteName: "minLink",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "minLink - Encurtador de URL Gratuito",
+        alt: "minLink - Encurtador de URL Gratuito com Analytics Avançados",
         type: "image/png",
       },
     ],
+    videos: [],
+    audio: [],
   },
   twitter: {
     card: "summary_large_image",
-    title: "minLink - Encurtador de URL Gratuito",
-    description: "Encurte suas URLs de forma rápida, segura e gratuita. Compartilhe links mais limpos e acompanhe estatísticas básicas.",
-    images: ["/og.png"],
+    site: "@minlink",
+    creator: "@gpaiva00",
+    title: "minLink - Encurtador de URL Gratuito e Seguro",
+    description:
+      "Encurte suas URLs de forma rápida, segura e gratuita com o minLink. Compartilhe links mais limpos, acompanhe estatísticas detalhadas de cliques, geolocalização e analytics avançados. Proteção anti-spam e performance otimizada.",
+    images: {
+      url: "/og.png",
+      alt: "minLink - Encurtador de URL Gratuito com Analytics Avançados",
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_VERIFICATION,
+    yahoo: process.env.YAHOO_SITE_VERIFICATION,
+  },
+  appleWebApp: {
+    capable: true,
+    title: "minLink",
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "minLink",
+    "application-name": "minLink",
+    "msapplication-TileColor": "#3b82f6",
+    "msapplication-config": "/browserconfig.xml",
+    "theme-color": "#3b82f6",
   },
 };
 
@@ -73,6 +151,51 @@ export default function RootLayout({
           async
           defer
         ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "minLink",
+              description:
+                "Encurte suas URLs de forma rápida, segura e gratuita com o minLink. Compartilhe links mais limpos, acompanhe estatísticas detalhadas de cliques, geolocalização e analytics avançados.",
+              url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+              applicationCategory: "UtilitiesApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+              },
+              creator: {
+                "@type": "Person",
+                name: "Gabriel Paiva",
+                url: "https://github.com/gabrielpaiv",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "minLink",
+                url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+              },
+              featureList: [
+                "Encurtamento de URLs gratuito",
+                "Analytics detalhados de cliques",
+                "Geolocalização de visitantes",
+                "Proteção anti-spam com Cloudflare Turnstile",
+                "Cache Redis para performance otimizada",
+                "Geração de QR Code",
+                "Interface responsiva",
+                "Página de preview de segurança",
+              ],
+              browserRequirements: "Requires JavaScript. Requires HTML5.",
+              softwareVersion: "1.0.0",
+              dateCreated: "2024-01-15",
+              dateModified: new Date().toISOString().split("T")[0],
+            }),
+          }}
+        />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-background flex flex-col`}
