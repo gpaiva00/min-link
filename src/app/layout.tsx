@@ -192,7 +192,7 @@ export default function RootLayout({
               browserRequirements: "Requires JavaScript. Requires HTML5.",
               softwareVersion: "1.0.0",
               dateCreated: "2024-01-15",
-              dateModified: new Date().toISOString().split("T")[0],
+              dateModified: "2025-09-02",
             }),
           }}
         />

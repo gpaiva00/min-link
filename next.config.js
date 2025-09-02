@@ -85,11 +85,7 @@ const nextConfig = {
     ];
   },
   
-  // Configurações experimentais para performance
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
-  },
+  // Configurações experimentais removidas para compatibilidade com Vercel
 };
 
 module.exports = nextConfig;
