@@ -86,20 +86,20 @@ export default function RootLayout({
         <footer className="mt-auto">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="text-primary text-sm">
+              <div className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} minLink. Todos os direitos
                 reservados.
               </div>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <a
                   href="/privacy-policy"
-                  className="text-gray-300 hover:underline text-sm"
+                  className="text-gray-500 hover:underline text-sm"
                 >
                   Política de Privacidade
                 </a>
                 <a
                   href="/terms-of-service"
-                  className="text-gray-300 hover:underline text-sm"
+                  className="text-gray-500 hover:underline text-sm"
                 >
                   Termos de Uso
                 </a>
