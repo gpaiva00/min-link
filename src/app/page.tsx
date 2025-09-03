@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { normalizeUrl } from "@/lib/utils";
 import { DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
+import dynamic from "next/dynamic";
 
 interface ShortenResponse {
   success: boolean;
@@ -27,6 +28,9 @@ interface FormData {
 }
 
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+const TurnstileWidget = dynamic(() => import("@/components/TurnstileWidget"), {
+  ssr: false,
+});
 
 export default function HomePage() {
   const router = useRouter();
@@ -126,11 +130,12 @@ export default function HomePage() {
           </div>
 
           {/* Turnstile Widget */}
-          <div
-            className="cf-turnstile"
-            data-callback="handleTurnstileCallback"
-            data-sitekey={siteKey}
-          ></div>
+          {siteKey && (
+            <TurnstileWidget
+              siteKey={siteKey}
+              onCallback={handleTurnstileCallback}
+            />
+          )}
 
           <button
             type="submit"
