@@ -1,3 +1,5 @@
+const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configurações de performance e SEO
@@ -88,4 +90,4 @@ const nextConfig = {
   // Configurações experimentais removidas para compatibilidade com Vercel
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

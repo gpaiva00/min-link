@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { normalizeUrl } from "@/lib/utils";
 import { DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ShortenResponse {
   success: boolean;
@@ -33,6 +34,7 @@ const TurnstileWidget = dynamic(() => import("@/components/TurnstileWidget"), {
 });
 
 export default function HomePage() {
+  const t = useTranslations("homepage");
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     url: "",
@@ -70,7 +72,7 @@ export default function HomePage() {
 
         if (!turnstileToken) {
           throw new Error(
-            "Falha na verificação de segurança. Tente novamente."
+            t("errors.turnstileError")
           );
         }
       }
@@ -97,13 +99,13 @@ export default function HomePage() {
         // Redirecionar para a página de preview
         router.push(`/preview/${data.data?.code}`);
       } else {
-        setError(data.error || "Erro desconhecido");
+        setError(data.error || t("errors.unknownError"));
         if (data.details) {
           setError(data.details.join(", "));
         }
       }
     } catch (err) {
-      setError("Erro de conexão. Tente novamente.");
+      setError(t("errors.connectionError"));
     } finally {
       setIsLoading(false);
     }
@@ -120,10 +122,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="text-center mb-12 space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold text-primary-500">
-          Encurte seus links
+          {t("title")}
         </h1>
         <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-          Transforme URLs longas em links curtos e elegantes.
+          {t("subtitle")}
         </p>
       </div>
 
@@ -135,7 +137,7 @@ export default function HomePage() {
               htmlFor="url"
               className="block text-sm font-medium text-gray-50 mb-2"
             >
-              Cole sua URL aqui
+              {t("urlLabel")}
             </label>
             <input
               type="url"
@@ -144,7 +146,7 @@ export default function HomePage() {
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, url: e.target.value }))
               }
-              placeholder="https://exemplo.com/sua-url-muito-longa"
+              placeholder={t("urlPlaceholder")}
               className="input"
               required
               disabled={isLoading}
@@ -184,10 +186,10 @@ export default function HomePage() {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   ></path>
                 </svg>
-                Encurtando...
+                {t("shorteningButton")}
               </>
             ) : (
-              "Encurtar URL"
+              t("shortenButton")
             )}
           </button>
         </form>
@@ -210,7 +212,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-red-800">Erro</h3>
+                <h3 className="text-sm font-medium text-red-800">{t("errors.title")}</h3>
                 <div className="mt-2 text-sm text-red-700">{error}</div>
               </div>
             </div>
@@ -225,11 +227,10 @@ export default function HomePage() {
             <ZapIcon className="text-primary-500" />
           </div>
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
-            Rápido
+            {t("features.fast.title")}
           </h3>
           <p className="text-gray-500">
-            Encurte seus links em segundos com nossa interface simples e
-            intuitiva.
+            {t("features.fast.description")}
           </p>
         </div>
 
@@ -238,11 +239,10 @@ export default function HomePage() {
             <ShieldIcon className="text-primary-500" />
           </div>
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
-            Seguro
+            {t("features.secure.title")}
           </h3>
           <p className="text-gray-500">
-            Proteção contra spam e links maliciosos com verificação de
-            segurança.
+            {t("features.secure.description")}
           </p>
         </div>
 
@@ -251,11 +251,10 @@ export default function HomePage() {
             <DollarSignIcon className="text-primary-500" />
           </div>
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
-            Gratuito
+            {t("features.free.title")}
           </h3>
           <p className="text-gray-500">
-            Sem limites, sem cadastro. Use quantas vezes quiser, completamente
-            grátis.
+            {t("features.free.description")}
           </p>
         </div>
       </div>

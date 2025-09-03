@@ -1,0 +1,143 @@
+{
+  "common": {
+    "error": "Error",
+    "loading": "Loading...",
+    "unknownError": "Unknown error",
+    "connectionError": "Connection error. Please try again."
+  },
+  "homepage": {
+    "title": "Shorten your links",
+    "subtitle": "Transform long URLs into short and elegant links.",
+    "urlLabel": "Paste your URL here",
+    "urlPlaceholder": "https://example.com/your-very-long-url",
+    "shortenButton": "Shorten URL",
+    "shorteningButton": "Shortening...",
+    "features": {
+      "fast": {
+        "title": "Fast",
+        "description": "Shorten your links in seconds with our simple and intuitive interface."
+      },
+      "secure": {
+        "title": "Secure",
+        "description": "Protection against spam and malicious links with security verification."
+      },
+      "free": {
+        "title": "Free",
+        "description": "No limits, no registration. Use as many times as you want, completely free."
+      }
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "footer": {
+    "copyright": "© 2025 minLink. All rights reserved.",
+    "madeWith": "Made with ❤️ in Brazil",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "description": "minLink privacy policy - How we collect, use and protect your data",
+    "lastUpdated": "Last updated",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "This Privacy Policy describes how minLink collects, uses and protects your information when you use our URL shortening service."
+      },
+      "dataCollection": {
+        "title": "Data Collection",
+        "content": "We collect the following information:",
+        "items": {
+          "urls": "Original URLs that you shorten through our service",
+          "analytics": "Click data, geographic location and devices used",
+          "technical": "Technical information such as IP address, browser and operating system"
+        }
+      },
+      "dataUsage": {
+        "title": "Data Usage",
+        "content": "We use your data to:",
+        "items": {
+          "service": "Provide and improve our URL shortening service",
+          "analytics": "Generate statistics and usage analytics for links",
+          "security": "Detect and prevent malicious activities or spam"
+        }
+      },
+      "dataSharing": {
+        "title": "Data Sharing",
+        "content": "We do not sell, rent or share your personal information with third parties, except when required by law or to protect our legal rights."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "We use cookies to improve your browsing experience and collect analytical data. You can disable cookies in your browser settings."
+      },
+      "security": {
+        "title": "Security",
+        "content": "We implement appropriate security measures to protect your information against unauthorized access, alteration, disclosure or destruction."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "If you have questions about this Privacy Policy, contact us through GitHub: https://github.com/gpaiva00"
+      }
+    }
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "description": "minLink terms of service - Rules and conditions of use",
+    "lastUpdated": "Last updated",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using minLink, you agree to these Terms of Service. If you do not agree with any part of these terms, do not use our service."
+      },
+      "serviceDescription": {
+        "title": "Service Description",
+        "content": "minLink is a free URL shortening service that allows you to transform long links into shorter, easier-to-share versions."
+      },
+      "userResponsibilities": {
+        "title": "User Responsibilities",
+        "content": "You are responsible for:",
+        "items": {
+          "legal": "Using the service only for legal and legitimate purposes",
+          "harmful": "Not shortening URLs that contain harmful, offensive or illegal content",
+          "spam": "Not using the service for spam or malicious activities",
+          "malware": "Not shortening links that direct to malware or dangerous sites"
+        }
+      },
+      "prohibitedUse": {
+        "title": "Prohibited Use",
+        "content": "It is prohibited to use minLink for:",
+        "items": {
+          "illegal": "Illegal activities or those that violate local, national or international laws",
+          "copyright": "Copyright or intellectual property violations",
+          "phishing": "Phishing, fraud or identity theft attempts",
+          "abuse": "Abuse, harassment or discrimination against individuals or groups"
+        }
+      },
+      "serviceAvailability": {
+        "title": "Service Availability",
+        "content": "While we strive to keep the service available 24/7, we do not guarantee uninterrupted availability. We may temporarily suspend the service for maintenance or updates."
+      },
+      "limitation": {
+        "title": "Limitation of Liability",
+        "content": "minLink is provided 'as is' without warranties of any kind. We are not responsible for direct, indirect or consequential damages arising from the use of the service."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "content": "We reserve the right to modify these Terms of Service at any time. Changes will take effect immediately upon publication."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For questions about these Terms of Service, contact us through GitHub: https://github.com/gpaiva00"
+      }
+    }
+  },
+  "meta": {
+    "title": "minLink - Free URL Shortener",
+    "description": "Shorten your long URLs for free. Fast, secure and unlimited. Transform long links into short and elegant URLs."
+  }
+}
