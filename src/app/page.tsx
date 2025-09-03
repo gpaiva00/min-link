@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import { normalizeUrl } from "@/lib/utils";
 import { DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
 
@@ -27,10 +26,7 @@ interface FormData {
   turnstileToken: string;
 }
 
-// Importar TurnstileWidget dinamicamente sem SSR
-const TurnstileWidget = dynamic(() => import("@/components/TurnstileWidget"), {
-  ssr: false,
-});
+const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function HomePage() {
   const router = useRouter();
@@ -93,8 +89,6 @@ export default function HomePage() {
     setIsTurnstileReady(!!token);
   };
 
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
-
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
       {/* Hero Section */}
@@ -131,11 +125,12 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Turnstile Widget - Modo Implícito */}
-          <TurnstileWidget
-            siteKey={siteKey}
-            onCallback={handleTurnstileCallback}
-          />
+          {/* Turnstile Widget */}
+          <div
+            className="cf-turnstile"
+            data-callback="handleTurnstileCallback"
+            data-sitekey={siteKey}
+          ></div>
 
           <button
             type="submit"
