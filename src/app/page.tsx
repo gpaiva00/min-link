@@ -40,6 +40,7 @@ export default function HomePage() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isTurnstileReady, setIsTurnstileReady] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,30 +50,11 @@ export default function HomePage() {
     try {
       const normalizedUrl = normalizeUrl(formData.url);
 
-      // Aguardar token do Turnstile se ainda não estiver disponível
-      let turnstileToken = formData.turnstileToken;
-      if (!turnstileToken) {
-        // Tentar executar o Turnstile novamente
-        if (typeof window !== "undefined" && (window as any).turnstile) {
-          const turnstileElement = document.querySelector(".cf-turnstile");
-          if (turnstileElement) {
-            (window as any).turnstile.execute();
-          }
-        }
-
-        // Aguardar até 5 segundos pelo token
-        const maxWait = 5000;
-        const startTime = Date.now();
-        while (!turnstileToken && Date.now() - startTime < maxWait) {
-          await new Promise((resolve) => setTimeout(resolve, 100));
-          turnstileToken = formData.turnstileToken;
-        }
-
-        if (!turnstileToken) {
-          throw new Error(
-            "Falha na verificação de segurança. Tente novamente."
-          );
-        }
+      // Verificar se o token do Turnstile está disponível
+      if (!formData.turnstileToken) {
+        throw new Error(
+          "Falha na verificação de segurança. Aguarde o carregamento e tente novamente."
+        );
       }
 
       const response = await fetch("/api/shorten", {
@@ -82,7 +64,7 @@ export default function HomePage() {
         },
         body: JSON.stringify({
           url: normalizedUrl,
-          turnstileToken: turnstileToken,
+          turnstileToken: formData.turnstileToken,
         }),
       });
 
@@ -90,10 +72,6 @@ export default function HomePage() {
 
       if (data.success) {
         setFormData({ url: "", turnstileToken: "" });
-        // Reset Turnstile
-        if (typeof window !== "undefined" && (window as any).turnstile) {
-          (window as any).turnstile.reset();
-        }
         // Redirecionar para a página de preview
         router.push(`/preview/${data.data?.code}`);
       } else {
@@ -103,6 +81,7 @@ export default function HomePage() {
         }
       }
     } catch (err) {
+      console.error("Erro ao encurtar URL:", err);
       setError("Erro de conexão. Tente novamente.");
     } finally {
       setIsLoading(false);
@@ -111,6 +90,7 @@ export default function HomePage() {
 
   const handleTurnstileCallback = (token: string) => {
     setFormData((prev) => ({ ...prev, turnstileToken: token }));
+    setIsTurnstileReady(!!token);
   };
 
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
@@ -159,7 +139,7 @@ export default function HomePage() {
 
           <button
             type="submit"
-            disabled={isLoading || !formData.url}
+            disabled={isLoading || !formData.url || !isTurnstileReady}
             className="btn-primary"
           >
             {isLoading ? (
