@@ -14,32 +14,38 @@ const languages = [
   { code: "es", name: "Español", flag: "🇪🇸" },
 ];
 
-export default function LanguageSelector({ currentLocale }: LanguageSelectorProps) {
+export default function LanguageSelector({
+  currentLocale,
+}: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   // Detectar idioma atual da URL ou usar padrão
-  const detectedLocale = currentLocale || pathname.split('/')[1] || 'pt-BR';
-  const validLocale = languages.find(lang => lang.code === detectedLocale)?.code || 'pt-BR';
-  const currentLanguage = languages.find(lang => lang.code === validLocale) || languages[0];
+  const detectedLocale = currentLocale || pathname.split("/")[1] || "pt-BR";
+  const validLocale =
+    languages.find((lang) => lang.code === detectedLocale)?.code || "pt-BR";
+  const currentLanguage =
+    languages.find((lang) => lang.code === validLocale) || languages[0];
 
   function handleLanguageChange(newLocale: string) {
     // Remove o locale atual do pathname e adiciona o novo
-    const segments = pathname.split('/').filter(Boolean);
-    
+    const segments = pathname.split("/").filter(Boolean);
+
     // Verifica se o primeiro segmento é um locale válido
-    const hasLocaleInPath = segments.length > 0 && languages.some(lang => lang.code === segments[0]);
-    
+    const hasLocaleInPath =
+      segments.length > 0 &&
+      languages.some((lang) => lang.code === segments[0]);
+
     // Constrói o caminho sem o locale atual
-    const pathWithoutLocale = hasLocaleInPath 
-      ? '/' + segments.slice(1).join('/') 
+    const pathWithoutLocale = hasLocaleInPath
+      ? "/" + segments.slice(1).join("/")
       : pathname;
-    
+
     // Garante que o caminho termine corretamente
-    const cleanPath = pathWithoutLocale === '/' ? '' : pathWithoutLocale;
+    const cleanPath = pathWithoutLocale === "/" ? "" : pathWithoutLocale;
     const newPath = `/${newLocale}${cleanPath}`;
-    
+
     // Usar router.push para navegação que funciona melhor com Next.js
     router.push(newPath);
     setIsOpen(false);
@@ -49,19 +55,26 @@ export default function LanguageSelector({ currentLocale }: LanguageSelectorProp
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        className="flex items-center gap-2 text-sm font-medium text-gray-500  focus:outline-none"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
         <span className="text-lg">{currentLanguage.flag}</span>
         <span className="hidden sm:block">{currentLanguage.name}</span>
         <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
@@ -72,9 +85,9 @@ export default function LanguageSelector({ currentLocale }: LanguageSelectorProp
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          
+
           {/* Dropdown menu */}
-          <div className="absolute right-0 z-20 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
+          <div className="absolute right-0 z-20 bottom-full mb-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg">
             <div className="py-1">
               {languages.map((language) => (
                 <button
@@ -82,8 +95,8 @@ export default function LanguageSelector({ currentLocale }: LanguageSelectorProp
                   onClick={() => handleLanguageChange(language.code)}
                   className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center gap-3 ${
                     language.code === validLocale
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-700'
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-gray-700"
                   }`}
                 >
                   <span className="text-lg">{language.flag}</span>

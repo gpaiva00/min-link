@@ -26,7 +26,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const messages = await getMessages();
   const t = (key: string) => {
-    const keys = key.split('.');
+    const keys = key.split(".");
     let value: any = messages;
     for (const k of keys) {
       value = value?.[k];
@@ -36,10 +36,10 @@ export async function generateMetadata({
 
   return {
     title: {
-      default: t('meta.title'),
+      default: t("meta.title"),
       template: `%s | minLink`,
     },
-    description: t('meta.description'),
+    description: t("meta.description"),
     keywords: [
       "encurtador de url",
       "link curto",
@@ -80,8 +80,8 @@ export async function generateMetadata({
       languages: {
         "pt-BR": `${process.env.NEXT_PUBLIC_APP_URL}/pt-BR`,
         "en-US": `${process.env.NEXT_PUBLIC_APP_URL}/en-US`,
-        "fr": `${process.env.NEXT_PUBLIC_APP_URL}/fr`,
-        "es": `${process.env.NEXT_PUBLIC_APP_URL}/es`,
+        fr: `${process.env.NEXT_PUBLIC_APP_URL}/fr`,
+        es: `${process.env.NEXT_PUBLIC_APP_URL}/es`,
       },
     },
     icons: {
@@ -107,17 +107,17 @@ export async function generateMetadata({
     manifest: "/site.webmanifest",
     openGraph: {
       type: "website",
-      locale: locale.replace('-', '_'),
+      locale: locale.replace("-", "_"),
       url: process.env.NEXT_PUBLIC_APP_URL,
-      title: t('meta.title'),
-      description: t('meta.description'),
+      title: t("meta.title"),
+      description: t("meta.description"),
       siteName: "minLink",
       images: [
         {
           url: "/og.png",
           width: 1200,
           height: 630,
-          alt: t('meta.title'),
+          alt: t("meta.title"),
           type: "image/png",
         },
       ],
@@ -126,11 +126,11 @@ export async function generateMetadata({
       card: "summary_large_image",
       site: "@minlink",
       creator: "@gpaiva00",
-      title: t('meta.title'),
-      description: t('meta.description'),
+      title: t("meta.title"),
+      description: t("meta.description"),
       images: {
         url: "/og.png",
-        alt: t('meta.title'),
+        alt: t("meta.title"),
       },
     },
     verification: {
@@ -165,7 +165,10 @@ export const viewport = {
   themeColor: "#3b82f6",
 };
 
-export default async function LocaleLayout({ children, params: { locale } }: Props) {
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: Props) {
   // Validar se o idioma é suportado
   if (!locales.includes(locale as any)) {
     notFound();
@@ -191,7 +194,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
         <NextIntlClientProvider locale={locale} messages={messages}>
           <header className="">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
+              <div className="flex justify-end items-center h-16">
                 <a
                   href="/"
                   className="text-2xl flex gap-2 items-center font-bold text-primary-500"
@@ -199,7 +202,6 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
                   <img src="/logo.png" className="w-6 h-6" />
                   minLink
                 </a>
-                <LanguageSelector />
               </div>
             </div>
           </header>
@@ -209,9 +211,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
           <footer className="mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
               <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="text-gray-500 text-sm">
-                  {t("copyright")}
-                </div>
+                <div className="text-gray-500 text-sm">{t("copyright")}</div>
                 <div className="flex space-x-6 mt-4 md:mt-0">
                   <a
                     href={`/${locale}/privacy-policy`}
@@ -225,6 +225,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
                   >
                     {t("termsOfService")}
                   </a>
+                  <LanguageSelector />
                 </div>
               </div>
             </div>
