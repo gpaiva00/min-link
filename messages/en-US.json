@@ -139,5 +139,22 @@
   "meta": {
     "title": "minLink - Free URL Shortener",
     "description": "Shorten your long URLs for free. Fast, secure and unlimited. Transform long links into short and elegant URLs."
+  },
+  "preview": {
+    "loading": "Loading...",
+    "linkPreview": "Link Preview",
+    "checkDestination": "Check the destination before proceeding",
+    "secure": "Secure",
+    "notSecure": "Not Secure",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "domain": "Domain",
+    "clicks": "Clicks",
+    "created": "Created",
+    "locale": "Locale",
+    "createNewLink": "Create New Link",
+    "goToSite": "Go to Site",
+    "preview": "Preview",
+    "redirectingTo": "Redirecting to {destination} in {seconds} seconds..."
   }
 }

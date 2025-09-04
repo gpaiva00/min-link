@@ -139,5 +139,22 @@
   "meta": {
     "title": "Min Link - Acortador de URLs Gratuito",
     "description": "Acorta tus URLs largas gratis. Rápido, seguro y sin límites. Transforma enlaces largos en URLs cortas y elegantes."
+  },
+  "preview": {
+    "loading": "Cargando...",
+    "linkPreview": "Vista previa del enlace",
+    "checkDestination": "Verifica el destino antes de proceder",
+    "secure": "Seguro",
+    "notSecure": "No seguro",
+    "copied": "¡Copiado!",
+    "copy": "Copiar",
+    "domain": "Dominio",
+    "clicks": "Clics",
+    "created": "Creado",
+    "locale": "Idioma",
+    "createNewLink": "Crear nuevo enlace",
+    "goToSite": "Ir al sitio",
+    "preview": "Vista previa",
+    "redirectingTo": "Redirigiendo a {destination} en {seconds} segundos..."
   }
 }

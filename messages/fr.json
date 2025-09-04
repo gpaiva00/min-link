@@ -139,5 +139,22 @@
   "meta": {
     "title": "Min Link - Raccourcisseur d'URL Gratuit",
     "description": "Raccourcissez vos URLs longues gratuitement. Rapide, sécurisé et illimité. Transformez les liens longs en URLs courtes et élégantes."
+  },
+  "preview": {
+    "loading": "Chargement...",
+    "linkPreview": "Aperçu du lien",
+    "checkDestination": "Vérifiez la destination avant de procéder",
+    "secure": "Sécurisé",
+    "notSecure": "Non sécurisé",
+    "copied": "Copié !",
+    "copy": "Copier",
+    "domain": "Domaine",
+    "clicks": "Clics",
+    "created": "Créé",
+    "locale": "Locale",
+    "createNewLink": "Créer un nouveau lien",
+    "goToSite": "Aller sur le site",
+    "preview": "Aperçu",
+    "redirectingTo": "Redirection vers {destination} dans {seconds} secondes..."
   }
 }

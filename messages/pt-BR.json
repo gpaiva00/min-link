@@ -156,8 +156,21 @@
       }
     }
   },
-  "meta": {
-    "title": "minLink - Encurtador de URLs Gratuito",
-    "description": "Encurte suas URLs longas gratuitamente. Rápido, seguro e sem limites. Transforme links longos em URLs curtas e elegantes."
+  "preview": {
+    "loading": "Carregando...",
+    "linkPreview": "Prévia do Link",
+    "checkDestination": "Verifique o destino antes de prosseguir",
+    "secure": "Seguro",
+    "notSecure": "Não Seguro",
+    "copied": "Copiado!",
+    "copy": "Copiar",
+    "domain": "Domínio",
+    "clicks": "Cliques",
+    "created": "Criado",
+    "locale": "Idioma",
+    "createNewLink": "Criar Novo Link",
+    "goToSite": "Ir para o Site",
+    "preview": "Visualização",
+    "redirectingTo": "Redirecionando para {destination} em {seconds} segundos..."
   }
 }
