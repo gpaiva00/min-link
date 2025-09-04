@@ -40,7 +40,6 @@ export default function HomePage() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isTurnstileReady, setIsTurnstileReady] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,10 +87,9 @@ export default function HomePage() {
     }
   };
 
-  const handleTurnstileCallback = (token: string) => {
+  function handleTurnstileCallback(token: string) {
     setFormData((prev) => ({ ...prev, turnstileToken: token }));
-    setIsTurnstileReady(!!token);
-  };
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
@@ -139,7 +137,7 @@ export default function HomePage() {
 
           <button
             type="submit"
-            disabled={isLoading || !formData.url || !isTurnstileReady}
+            disabled={isLoading || !formData.url}
             className="btn-primary"
           >
             {isLoading ? (
