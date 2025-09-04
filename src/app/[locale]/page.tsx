@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import { normalizeUrl } from "@/lib/utils";
 import { DollarSignIcon, ShieldIcon, ZapIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 
 interface ShortenResponse {
   success: boolean;
@@ -28,7 +28,7 @@ interface FormData {
   turnstileToken: string;
 }
 
-// Importar TurnstileWidget dinamicamente sem SSR
+const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const TurnstileWidget = dynamic(() => import("@/components/TurnstileWidget"), {
   ssr: false,
 });
@@ -51,30 +51,9 @@ export default function HomePage() {
     try {
       const normalizedUrl = normalizeUrl(formData.url);
 
-      // Aguardar token do Turnstile se ainda não estiver disponível
-      let turnstileToken = formData.turnstileToken;
-      if (!turnstileToken) {
-        // Tentar executar o Turnstile novamente
-        if (typeof window !== "undefined" && (window as any).turnstile) {
-          const turnstileElement = document.querySelector(".cf-turnstile");
-          if (turnstileElement) {
-            (window as any).turnstile.execute();
-          }
-        }
-
-        // Aguardar até 5 segundos pelo token
-        const maxWait = 5000;
-        const startTime = Date.now();
-        while (!turnstileToken && Date.now() - startTime < maxWait) {
-          await new Promise((resolve) => setTimeout(resolve, 100));
-          turnstileToken = formData.turnstileToken;
-        }
-
-        if (!turnstileToken) {
-          throw new Error(
-            t("errors.turnstileError")
-          );
-        }
+      // Verificar se o token do Turnstile está disponível
+      if (!formData.turnstileToken) {
+        throw new Error(t("errors.turnstileError"));
       }
 
       const response = await fetch("/api/shorten", {
@@ -84,7 +63,7 @@ export default function HomePage() {
         },
         body: JSON.stringify({
           url: normalizedUrl,
-          turnstileToken: turnstileToken,
+          turnstileToken: formData.turnstileToken,
         }),
       });
 
@@ -92,10 +71,6 @@ export default function HomePage() {
 
       if (data.success) {
         setFormData({ url: "", turnstileToken: "" });
-        // Reset Turnstile
-        if (typeof window !== "undefined" && (window as any).turnstile) {
-          (window as any).turnstile.reset();
-        }
         // Redirecionar para a página de preview
         router.push(`/preview/${data.data?.code}`);
       } else {
@@ -111,11 +86,9 @@ export default function HomePage() {
     }
   };
 
-  const handleTurnstileCallback = (token: string) => {
+  function handleTurnstileCallback(token: string) {
     setFormData((prev) => ({ ...prev, turnstileToken: token }));
-  };
-
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
@@ -153,11 +126,13 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Turnstile Widget - Modo Implícito */}
-          <TurnstileWidget
-            siteKey={siteKey}
-            onCallback={handleTurnstileCallback}
-          />
+          {/* Turnstile Widget */}
+          {siteKey && (
+            <TurnstileWidget
+              siteKey={siteKey}
+              onCallback={handleTurnstileCallback}
+            />
+          )}
 
           <button
             type="submit"
@@ -212,7 +187,9 @@ export default function HomePage() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-red-800">{t("errors.title")}</h3>
+                <h3 className="text-sm font-medium text-red-800">
+                  {t("errors.title")}
+                </h3>
                 <div className="mt-2 text-sm text-red-700">{error}</div>
               </div>
             </div>
@@ -229,9 +206,7 @@ export default function HomePage() {
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
             {t("features.fast.title")}
           </h3>
-          <p className="text-gray-500">
-            {t("features.fast.description")}
-          </p>
+          <p className="text-gray-500">{t("features.fast.description")}</p>
         </div>
 
         <div className="text-center">
@@ -241,9 +216,7 @@ export default function HomePage() {
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
             {t("features.secure.title")}
           </h3>
-          <p className="text-gray-500">
-            {t("features.secure.description")}
-          </p>
+          <p className="text-gray-500">{t("features.secure.description")}</p>
         </div>
 
         <div className="text-center">
@@ -253,9 +226,7 @@ export default function HomePage() {
           <h3 className="text-lg font-semibold text-primary-500 mb-2">
             {t("features.free.title")}
           </h3>
-          <p className="text-gray-500">
-            {t("features.free.description")}
-          </p>
+          <p className="text-gray-500">{t("features.free.description")}</p>
         </div>
       </div>
     </div>
