@@ -1,0 +1,232 @@
+{
+  "common": {
+    "error": "Erro",
+    "loading": "Carregando...",
+    "unknownError": "Erro desconhecido",
+    "connectionError": "Erro de conexão. Tente novamente."
+  },
+  "homepage": {
+    "title": "Encurte seus links",
+    "subtitle": "Transforme URLs longas em links curtos e elegantes.",
+    "urlLabel": "Cole sua URL aqui",
+    "urlPlaceholder": "https://exemplo.com/sua-url-muito-longa",
+    "shortenButton": "Encurtar URL",
+    "shorteningButton": "Encurtando...",
+    "form": {
+      "placeholder": "https://exemplo.com/sua-url-muito-longa",
+      "submit": "Encurtar URL",
+      "shortening": "Encurtando..."
+    },
+    "result": {
+      "title": "Link encurtado com sucesso!",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "qrCode": "Código QR"
+    },
+    "errors": {
+      "urlRequired": "Por favor, insira uma URL válida",
+      "rateLimitExceeded": "Muitas tentativas. Tente novamente em alguns minutos.",
+      "generic": "Erro ao encurtar URL. Tente novamente."
+    },
+    "features": {
+      "fast": {
+        "title": "Rápido",
+        "description": "Encurte seus links em segundos com nossa interface simples e intuitiva."
+      },
+      "secure": {
+        "title": "Seguro",
+        "description": "Proteção contra spam e links maliciosos com verificação de segurança."
+      },
+      "free": {
+        "title": "Gratuito",
+        "description": "Sem limites, sem cadastro. Use quantas vezes quiser, completamente grátis."
+      }
+    }
+  },
+  "meta": {
+    "title": "minLink - Encurtador de URL Gratuito e Seguro",
+    "description": "Encurte suas URLs de forma rápida, segura e gratuita com o minLink. Compartilhe links mais limpos, acompanhe estatísticas detalhadas de cliques, geolocalização e analytics avançados. Proteção anti-spam e performance otimizada."
+  },
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "contact": "Contato",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  },
+  "footer": {
+    "copyright": "© 2024 minLink. Todos os direitos reservados.",
+    "madeWith": "Feito com ❤️ no Brasil",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  },
+  "privacyPolicy": {
+    "title": "Política de Privacidade",
+    "description": "Política de privacidade do minLink - Como coletamos, usamos e protegemos seus dados",
+    "lastUpdated": "Última atualização",
+    "toc": "Índice",
+    "sections": {
+      "introduction": {
+        "title": "Introdução",
+        "content": "Esta Política de Privacidade descreve como o minLink coleta, usa e protege suas informações quando você utiliza nosso serviço de encurtamento de URLs."
+      },
+      "dataCollection": {
+        "title": "Coleta de Dados",
+        "content": "Coletamos as seguintes informações:",
+        "items": {
+          "urls": "URLs originais que você encurta através do nosso serviço",
+          "analytics": "Dados de cliques, localização geográfica e dispositivos utilizados",
+          "technical": "Informações técnicas como endereço IP, navegador e sistema operacional"
+        }
+      },
+      "dataUsage": {
+        "title": "Uso dos Dados",
+        "content": "Utilizamos seus dados para:",
+        "items": {
+          "service": "Fornecer e melhorar nosso serviço de encurtamento de URLs",
+          "analytics": "Gerar estatísticas e análises de uso dos links",
+          "security": "Detectar e prevenir atividades maliciosas ou spam"
+        }
+      },
+      "dataSharing": {
+        "title": "Compartilhamento de Dados",
+        "content": "Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei ou para proteger nossos direitos legais."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Utilizamos cookies para melhorar sua experiência de navegação e coletar dados analíticos. Você pode desabilitar os cookies nas configurações do seu navegador."
+      },
+      "security": {
+        "title": "Segurança",
+        "content": "Implementamos medidas de segurança adequadas para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição."
+      },
+      "contact": {
+        "title": "Contato",
+        "content": "Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco através do GitHub: https://github.com/gpaiva00"
+      }
+    }
+  },
+  "termsOfService": {
+    "title": "Termos de Serviço",
+    "description": "Termos de serviço do minLink - Regras e condições de uso",
+    "pageTitle": "Termos de Serviço",
+    "pageDescription": "Regras e condições para uso do nosso serviço de encurtamento de URLs",
+    "lastUpdated": "Última atualização",
+    "toc": "Índice",
+    "sections": {
+      "acceptance": {
+        "title": "Aceitação dos Termos",
+        "content": "Ao utilizar o minLink, você concorda com estes Termos de Serviço. Se você não concordar com qualquer parte destes termos, não utilize nosso serviço.",
+        "content1": "Ao acessar e usar o minLink, você aceita e concorda em ficar vinculado aos termos e condições deste Acordo de Termos de Serviço.",
+        "content2": "Se você não concordar com quaisquer destes termos e condições, não deve usar este serviço."
+      },
+      "description": {
+        "title": "Descrição do Serviço",
+        "content": "O minLink é um serviço gratuito de encurtamento de URLs que permite transformar links longos em versões mais curtas e fáceis de compartilhar.",
+        "content1": "O minLink é um serviço online gratuito que permite aos usuários encurtar URLs longas em links mais curtos e gerenciáveis.",
+        "content2": "Nosso serviço oferece as seguintes funcionalidades:",
+        "list1": "Encurtamento instantâneo de URLs",
+        "list2": "Análise de cliques e estatísticas básicas",
+        "list3": "Proteção contra links maliciosos",
+        "list4": "Interface simples e intuitiva"
+      },
+      "serviceDescription": {
+        "title": "Descrição do Serviço",
+        "content": "O minLink é um serviço gratuito de encurtamento de URLs que permite transformar links longos em versões mais curtas e fáceis de compartilhar."
+      },
+      "usage": {
+        "title": "Uso Aceitável",
+        "content": "Você concorda em usar o serviço de forma responsável e legal."
+      },
+      "userResponsibilities": {
+        "title": "Responsabilidades do Usuário",
+        "content": "Você é responsável por:",
+        "items": {
+          "legal": "Usar o serviço apenas para fins legais e legítimos",
+          "harmful": "Não encurtar URLs que contenham conteúdo prejudicial, ofensivo ou ilegal",
+          "spam": "Não usar o serviço para spam ou atividades maliciosas",
+          "malware": "Não encurtar links que direcionem para malware ou sites perigosos"
+        }
+      },
+      "prohibitedUse": {
+        "title": "Uso Proibido",
+        "content": "É proibido usar o minLink para:",
+        "items": {
+          "illegal": "Atividades ilegais ou que violem leis locais, nacionais ou internacionais",
+          "copyright": "Violação de direitos autorais ou propriedade intelectual",
+          "phishing": "Phishing, fraude ou tentativas de roubo de identidade",
+          "abuse": "Abuso, assédio ou discriminação contra indivíduos ou grupos"
+        }
+      },
+      "limitations": {
+        "title": "Limitações do Serviço",
+        "content": "O serviço pode ter limitações técnicas e de disponibilidade."
+      },
+      "intellectualProperty": {
+        "title": "Propriedade Intelectual",
+        "content": "Todos os direitos de propriedade intelectual do serviço pertencem ao minLink."
+      },
+      "privacy": {
+        "title": "Privacidade",
+        "content": "Sua privacidade é importante para nós. Consulte nossa Política de Privacidade."
+      },
+      "disclaimer": {
+        "title": "Isenção de Garantias",
+        "content": "O serviço é fornecido 'como está' sem garantias de qualquer tipo."
+      },
+      "liability": {
+        "title": "Limitação de Responsabilidade",
+        "content": "Nossa responsabilidade é limitada conforme permitido por lei."
+      },
+      "indemnification": {
+        "title": "Indenização",
+        "content": "Você concorda em nos indenizar contra quaisquer reivindicações decorrentes do seu uso do serviço."
+      },
+      "serviceAvailability": {
+        "title": "Disponibilidade do Serviço",
+        "content": "Embora nos esforcemos para manter o serviço disponível 24/7, não garantimos disponibilidade ininterrupta. Podemos suspender o serviço temporariamente para manutenção ou atualizações."
+      },
+      "termination": {
+        "title": "Encerramento",
+        "content": "Podemos encerrar ou suspender seu acesso ao serviço a qualquer momento."
+      },
+      "governingLaw": {
+        "title": "Lei Aplicável",
+        "content": "Estes termos são regidos pelas leis do Brasil."
+      },
+      "changes": {
+        "title": "Alterações nos Termos",
+        "content": "Podemos alterar estes termos a qualquer momento."
+      },
+      "limitation": {
+        "title": "Limitação de Responsabilidade",
+        "content": "O minLink é fornecido 'como está' sem garantias de qualquer tipo. Não nos responsabilizamos por danos diretos, indiretos ou consequenciais decorrentes do uso do serviço."
+      },
+      "modifications": {
+        "title": "Modificações",
+        "content": "Reservamos o direito de modificar estes Termos de Serviço a qualquer momento. As alterações entrarão em vigor imediatamente após a publicação."
+      },
+      "contact": {
+        "title": "Contato",
+        "content": "Para dúvidas sobre estes Termos de Serviço, entre em contato através do GitHub: https://github.com/gpaiva00"
+      }
+    }
+  },
+  "preview": {
+    "loading": "Carregando...",
+    "linkPreview": "Prévia do Link",
+    "checkDestination": "Verifique o destino antes de prosseguir",
+    "secure": "Seguro",
+    "notSecure": "Não Seguro",
+    "copied": "Copiado!",
+    "copy": "Copiar",
+    "domain": "Domínio",
+    "clicks": "Cliques",
+    "created": "Criado",
+    "locale": "Idioma",
+    "createNewLink": "Criar Novo Link",
+    "goToSite": "Ir para o Site",
+    "preview": "Visualização",
+    "redirectingTo": "Redirecionando para {destination} em {seconds} segundos..."
+  }
+}

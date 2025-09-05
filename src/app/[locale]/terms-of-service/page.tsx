@@ -12,68 +12,87 @@ import {
   CopyrightIcon,
   BanIcon,
 } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = {
-  title: "Termos de Uso | MinLink",
-  description:
-    "Termos de uso do MinLink - Condições para utilização do nosso serviço de encurtamento de URLs.",
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "termsOfService" });
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-function TableOfContents() {
+function TableOfContents({ t }: { t: any }) {
   const sections = [
     {
       id: "aceitacao-termos",
-      title: "1. Aceitação dos Termos",
+      title: t("sections.acceptance.title"),
       icon: BookOpenIcon,
     },
     {
       id: "descricao-servico",
-      title: "2. Descrição do Serviço",
+      title: t("sections.description.title"),
       icon: GlobeIcon,
     },
-    { id: "uso-aceitavel", title: "3. Uso Aceitável", icon: UserIcon },
+    { id: "uso-aceitavel", title: t("sections.usage.title"), icon: UserIcon },
     {
       id: "limitacoes-servico",
-      title: "4. Limitações do Serviço",
+      title: t("sections.limitations.title"),
       icon: AlertTriangleIcon,
     },
     {
       id: "propriedade-intelectual",
-      title: "5. Propriedade Intelectual",
+      title: t("sections.intellectualProperty.title"),
       icon: CopyrightIcon,
     },
-    { id: "privacidade", title: "6. Privacidade", icon: ShieldIcon },
+    { id: "privacidade", title: t("sections.privacy.title"), icon: ShieldIcon },
     {
       id: "isencao-garantias",
-      title: "7. Isenção de Garantias",
+      title: t("sections.disclaimer.title"),
       icon: AlertTriangleIcon,
     },
     {
       id: "limitacao-responsabilidade",
-      title: "8. Limitação de Responsabilidade",
+      title: t("sections.liability.title"),
       icon: ScaleIcon,
     },
-    { id: "indenizacao", title: "9. Indenização", icon: ScaleIcon },
+    {
+      id: "indenizacao",
+      title: t("sections.indemnification.title"),
+      icon: ScaleIcon,
+    },
     {
       id: "modificacoes-servico",
-      title: "10. Modificações do Serviço",
+      title: t("sections.modifications.title"),
       icon: FileTextIcon,
     },
-    { id: "encerramento", title: "11. Encerramento", icon: BanIcon },
-    { id: "lei-aplicavel", title: "12. Lei Aplicável", icon: ScaleIcon },
+    {
+      id: "encerramento",
+      title: t("sections.termination.title"),
+      icon: BanIcon,
+    },
+    {
+      id: "lei-aplicavel",
+      title: t("sections.governingLaw.title"),
+      icon: ScaleIcon,
+    },
     {
       id: "alteracoes-termos",
-      title: "13. Alterações nos Termos",
+      title: t("sections.changes.title"),
       icon: FileTextIcon,
     },
-    { id: "contato", title: "14. Contato", icon: MailIcon },
+    { id: "contato", title: t("sections.contact.title"), icon: MailIcon },
   ];
 
   return (
     <div className="card mb-8">
       <h2 className="text-xl font-semibold text-primary-500 mb-4 flex items-center gap-2">
         <FileTextIcon className="h-5 w-5" />
-        Índice
+        {t("toc")}
       </h2>
       <nav className="space-y-2">
         {sections.map((section) => {
@@ -94,7 +113,11 @@ function TableOfContents() {
   );
 }
 
-export default function TermsPage() {
+export default async function TermsPage({ params: { locale } }: { params: { locale: string } }) {
+  
+  const t = await getTranslations({ locale, namespace: 'termsOfService' });
+  const tPrivacy = await getTranslations({ locale, namespace: 'privacyPolicy' });
+  const tNav = await getTranslations({ locale, namespace: 'navigation' });
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -106,15 +129,15 @@ export default function TermsPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-primary-500 mb-4">
-            Termos de Uso
+            {t("pageTitle")}
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
-            Condições e regras para utilização do serviço MinLink
+            {t("pageDescription")}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800/50 rounded-lg border border-zinc-700">
-            <span className="text-sm text-gray-400">Última atualização:</span>
+            <span className="text-sm text-gray-400">{t("lastUpdated")}:</span>
             <span className="text-sm font-medium text-primary-500">
-              {new Date().toLocaleDateString("pt-BR")}
+              {new Date().toLocaleDateString(locale)}
             </span>
           </div>
         </div>
@@ -123,7 +146,7 @@ export default function TermsPage() {
           {/* Sidebar - Table of Contents */}
           <div className="lg:col-span-1">
             <div className="sticky top-8">
-              <TableOfContents />
+              <TableOfContents t={t} />
             </div>
           </div>
 
@@ -136,20 +159,12 @@ export default function TermsPage() {
                     <BookOpenIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    1. Aceitação dos Termos
+                    {t("sections.acceptance.title")}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Ao acessar e usar o MinLink, você concorda em cumprir e
-                    estar vinculado a estes Termos de Uso. Se você não concordar
-                    com qualquer parte destes termos, não deve usar nosso
-                    serviço.
-                  </p>
-                  <p>
-                    Estes termos se aplicam a todos os visitantes, usuários e
-                    outras pessoas que acessam ou usam o serviço.
-                  </p>
+                  <p>{t("sections.acceptance.content1")}</p>
+                  <p>{t("sections.acceptance.content2")}</p>
                 </div>
               </section>
 
@@ -159,32 +174,28 @@ export default function TermsPage() {
                     <GlobeIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    2. Descrição do Serviço
+                    {t("sections.description.title")}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    O MinLink é um serviço gratuito de encurtamento de URLs que
-                    permite aos usuários criar versões mais curtas de links
-                    longos.
-                  </p>
-                  <p>O serviço inclui:</p>
+                  <p>{t("sections.description.content1")}</p>
+                  <p>{t("sections.description.content2")}</p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Encurtamento de URLs</div>
+                      <div>{t("sections.description.list1")}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Redirecionamento para URLs originais</div>
+                      <div>{t("sections.description.list2")}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Estatísticas básicas de cliques</div>
+                      <div>{t("sections.description.list3")}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Verificação de segurança contra spam</div>
+                      <div>{t("sections.description.list4")}</div>
                     </li>
                   </ul>
                 </div>
@@ -196,46 +207,27 @@ export default function TermsPage() {
                     <UserIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    3. Uso Aceitável
+                    {t('sections.usage.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>Você concorda em NÃO usar o serviço para:</p>
+                  <p>{t('sections.prohibitedUse.content')}</p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Atividades ilegais ou fraudulentas</div>
+                      <div>{t('sections.prohibitedUse.items.illegal')}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        Distribuição de malware, vírus ou conteúdo malicioso
-                      </div>
+                      <div>{t('sections.prohibitedUse.items.copyright')}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Spam ou envio de mensagens não solicitadas</div>
+                      <div>{t('sections.prohibitedUse.items.phishing')}</div>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        Violação de direitos autorais ou propriedade intelectual
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Assédio, discriminação ou conteúdo ofensivo</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Tentativas de contornar medidas de segurança</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        Uso automatizado excessivo que possa sobrecarregar o
-                        serviço
-                      </div>
+                      <div>{t('sections.prohibitedUse.items.abuse')}</div>
                     </li>
                   </ul>
                 </div>
@@ -247,32 +239,11 @@ export default function TermsPage() {
                     <AlertTriangleIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    4. Limitações do Serviço
+                    {t('sections.limitations.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    O MinLink é fornecido "como está" e pode ter as seguintes
-                    limitações:
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Disponibilidade não garantida 24/7</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Limites de taxa para prevenir abuso</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Possibilidade de manutenção programada</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Remoção de links que violem estes termos</div>
-                    </li>
-                  </ul>
+                  <p>{t('sections.limitations.content')}</p>
                 </div>
               </section>
 
@@ -282,21 +253,11 @@ export default function TermsPage() {
                     <CopyrightIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    5. Propriedade Intelectual
+                    {t('sections.intellectualProperty.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    O serviço MinLink e todo o seu conteúdo, recursos e
-                    funcionalidades são propriedade exclusiva do MinLink e são
-                    protegidos por leis de direitos autorais, marcas registradas
-                    e outras leis de propriedade intelectual.
-                  </p>
-                  <p>
-                    Você mantém todos os direitos sobre as URLs que encurta, mas
-                    concede ao MinLink uma licença para processar e exibir essas
-                    URLs conforme necessário para fornecer o serviço.
-                  </p>
+                  <p>{t('sections.intellectualProperty.content')}</p>
                 </div>
               </section>
 
@@ -306,22 +267,20 @@ export default function TermsPage() {
                     <ShieldIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    6. Privacidade
+                    {t('sections.privacy.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    Sua privacidade é importante para nós. Nossa coleta e uso de
-                    informações pessoais em conexão com o serviço é descrita em
-                    nossa Política de Privacidade.
+                    {t('sections.privacy.content')}
                   </p>
                   <div className="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700">
                     <Link
-                      href="/privacy"
+                      href={`/${locale}/privacy-policy`}
                       className="text-primary-500 hover:text-primary-400 transition-colors inline-flex items-center gap-2"
                     >
                       <ShieldIcon className="h-4 w-4" />
-                      Leia nossa Política de Privacidade
+                      {tPrivacy('title')}
                     </Link>
                   </div>
                 </div>
@@ -333,33 +292,11 @@ export default function TermsPage() {
                     <AlertTriangleIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    7. Isenção de Garantias
+                    {t('sections.disclaimer.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    O serviço é fornecido "como está" e "conforme disponível"
-                    sem garantias de qualquer tipo, expressas ou implícitas,
-                    incluindo, mas não se limitando a:
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Garantias de comercialização</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Adequação para um propósito específico</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Não violação de direitos de terceiros</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Funcionamento ininterrupto ou livre de erros</div>
-                    </li>
-                  </ul>
+                  <p>{t('sections.disclaimer.content')}</p>
                 </div>
               </section>
 
@@ -369,37 +306,11 @@ export default function TermsPage() {
                     <ScaleIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    8. Limitação de Responsabilidade
+                    {t('sections.liability.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Em nenhuma circunstância o MinLink será responsável por
-                    danos diretos, indiretos, incidentais, especiais,
-                    consequenciais ou punitivos, incluindo, mas não se limitando
-                    a:
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Perda de lucros ou receita</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Perda de dados ou informações</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Interrupção de negócios</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        Danos resultantes do uso ou incapacidade de usar o
-                        serviço
-                      </div>
-                    </li>
-                  </ul>
+                  <p>{t('sections.liability.content')}</p>
                 </div>
               </section>
 
@@ -409,35 +320,11 @@ export default function TermsPage() {
                     <ScaleIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    9. Indenização
+                    {t('sections.indemnification.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Você concorda em indenizar, defender e isentar o MinLink de
-                    todas as reivindicações, responsabilidades, danos, perdas,
-                    custos e despesas decorrentes de:
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Seu uso do serviço</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Violação destes Termos de Uso</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>Violação de direitos de terceiros</div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="h-2 w-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        Qualquer conteúdo que você submeter através do serviço
-                      </div>
-                    </li>
-                  </ul>
+                  <p>{t('sections.indemnification.content')}</p>
                 </div>
               </section>
 
@@ -447,20 +334,11 @@ export default function TermsPage() {
                     <FileTextIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    10. Modificações do Serviço
+                    {t('sections.modifications.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Reservamo-nos o direito de modificar ou descontinuar o
-                    serviço (ou qualquer parte dele) temporária ou
-                    permanentemente, com ou sem aviso prévio.
-                  </p>
-                  <p>
-                    Não seremos responsáveis perante você ou terceiros por
-                    qualquer modificação, suspensão ou descontinuação do
-                    serviço.
-                  </p>
+                  <p>{t('sections.modifications.content')}</p>
                 </div>
               </section>
 
@@ -470,20 +348,11 @@ export default function TermsPage() {
                     <BanIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    11. Encerramento
+                    {t('sections.termination.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Podemos encerrar ou suspender seu acesso ao serviço
-                    imediatamente, sem aviso prévio, por qualquer motivo,
-                    incluindo, mas não se limitando à violação destes Termos de
-                    Uso.
-                  </p>
-                  <p>
-                    Após o encerramento, seu direito de usar o serviço cessará
-                    imediatamente.
-                  </p>
+                  <p>{t('sections.termination.content')}</p>
                 </div>
               </section>
 
@@ -493,19 +362,11 @@ export default function TermsPage() {
                     <ScaleIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    12. Lei Aplicável
+                    {t('sections.governingLaw.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Estes Termos de Uso são regidos e interpretados de acordo
-                    com as leis do Brasil, sem consideração aos princípios de
-                    conflito de leis.
-                  </p>
-                  <p>
-                    Qualquer disputa decorrente destes termos será resolvida nos
-                    tribunais competentes do Brasil.
-                  </p>
+                  <p>{t('sections.governingLaw.content')}</p>
                 </div>
               </section>
 
@@ -515,19 +376,11 @@ export default function TermsPage() {
                     <FileTextIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    13. Alterações nos Termos
+                    {t('sections.changes.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
-                  <p>
-                    Reservamo-nos o direito de modificar estes Termos de Uso a
-                    qualquer momento. Alterações significativas serão
-                    notificadas através do site.
-                  </p>
-                  <p>
-                    O uso continuado do serviço após alterações constitui
-                    aceitação dos novos termos.
-                  </p>
+                  <p>{t('sections.changes.content')}</p>
                 </div>
               </section>
 
@@ -537,13 +390,12 @@ export default function TermsPage() {
                     <MailIcon className="h-5 w-5 text-primary-500" />
                   </div>
                   <h2 className="text-2xl font-semibold text-primary-500">
-                    14. Contato
+                    {t('sections.contact.title')}
                   </h2>
                 </div>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    Se você tiver dúvidas sobre estes Termos de Uso, entre em
-                    contato conosco:
+                    {t('sections.contact.content')}
                   </p>
                   <div className="bg-zinc-800/50 p-6 rounded-lg border border-zinc-700">
                     <div className="space-y-2">
@@ -566,11 +418,11 @@ export default function TermsPage() {
             {/* Back to Home Button */}
             <div className="mt-12 pt-8 border-t border-zinc-700">
               <Link
-                href="/"
+                href={`/${locale}`}
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
-                Voltar ao início
+                {tNav('home')}
               </Link>
             </div>
           </div>

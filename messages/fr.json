@@ -1,0 +1,216 @@
+{
+  "common": {
+    "error": "Erreur",
+    "loading": "Chargement...",
+    "unknownError": "Erreur inconnue",
+    "connectionError": "Erreur de connexion. Veuillez réessayer."
+  },
+  "homepage": {
+    "title": "Raccourcissez vos liens",
+    "subtitle": "Transformez les URLs longues en liens courts et élégants.",
+    "urlLabel": "Collez votre URL ici",
+    "urlPlaceholder": "https://exemple.com/votre-url-tres-longue",
+    "shortenButton": "Raccourcir l'URL",
+    "shorteningButton": "Raccourcissement...",
+    "features": {
+      "fast": {
+        "title": "Rapide",
+        "description": "Raccourcissez vos liens en quelques secondes avec notre interface simple et intuitive."
+      },
+      "secure": {
+        "title": "Sécurisé",
+        "description": "Protection contre le spam et les liens malveillants avec vérification de sécurité."
+      },
+      "free": {
+        "title": "Gratuit",
+        "description": "Sans limites, sans inscription. Utilisez autant de fois que vous voulez, complètement gratuit."
+      }
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation"
+  },
+  "footer": {
+    "copyright": "© 2024 minLink. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ au Brésil",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation"
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "description": "Politique de confidentialité de minLink - Comment nous collectons, utilisons et protégeons vos données",
+    "lastUpdated": "Dernière mise à jour",
+    "toc": "Table des matières",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "Cette Politique de Confidentialité décrit comment minLink collecte, utilise et protège vos informations lorsque vous utilisez notre service de raccourcissement d'URL."
+      },
+      "dataCollection": {
+        "title": "Collecte de Données",
+        "content": "Nous collectons les informations suivantes :",
+        "items": {
+          "urls": "URLs originales que vous raccourcissez via notre service",
+          "analytics": "Données de clics, localisation géographique et appareils utilisés",
+          "technical": "Informations techniques telles que l'adresse IP, le navigateur et le système d'exploitation"
+        }
+      },
+      "dataUsage": {
+        "title": "Utilisation des Données",
+        "content": "Nous utilisons vos données pour :",
+        "items": {
+          "service": "Fournir et améliorer notre service de raccourcissement d'URL",
+          "analytics": "Générer des statistiques et analyses d'utilisation des liens",
+          "security": "Détecter et prévenir les activités malveillantes ou le spam"
+        }
+      },
+      "dataSharing": {
+        "title": "Partage de Données",
+        "content": "Nous ne vendons, ne louons ni ne partageons vos informations personnelles avec des tiers, sauf si requis par la loi ou pour protéger nos droits légaux."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Nous utilisons des cookies pour améliorer votre expérience de navigation et collecter des données analytiques. Vous pouvez désactiver les cookies dans les paramètres de votre navigateur."
+      },
+      "security": {
+        "title": "Sécurité",
+        "content": "Nous mettons en place des mesures de sécurité appropriées pour protéger vos informations contre l'accès non autorisé, l'altération, la divulgation ou la destruction."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "Si vous avez des questions concernant cette Politique de Confidentialité, contactez-nous via GitHub : https://github.com/gpaiva00"
+      }
+    }
+  },
+  "termsOfService": {
+    "pageTitle": "Conditions d'Utilisation",
+    "pageDescription": "Règles et conditions pour utiliser notre service de raccourcissement d'URL",
+    "title": "Conditions d'Utilisation",
+    "description": "Conditions d'utilisation de minLink - Règles et conditions d'usage",
+    "lastUpdated": "Dernière mise à jour",
+    "toc": "Table des matières",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptation des Conditions",
+        "content": "En utilisant minLink, vous acceptez ces Conditions d'Utilisation. Si vous n'acceptez pas une partie de ces conditions, n'utilisez pas notre service.",
+        "content1": "En accédant et en utilisant minLink, vous acceptez et convenez d'être lié par les termes et conditions de cet Accord de Conditions d'Utilisation.",
+        "content2": "Si vous n'acceptez pas l'un de ces termes et conditions, vous ne devez pas utiliser ce service."
+      },
+      "serviceDescription": {
+        "title": "Description du Service",
+        "content": "minLink est un service gratuit de raccourcissement d'URL qui vous permet de transformer des liens longs en versions plus courtes et faciles à partager."
+      },
+      "userResponsibilities": {
+        "title": "Responsabilités de l'Utilisateur",
+        "content": "Vous êtes responsable de :",
+        "items": {
+          "legal": "Utiliser le service uniquement à des fins légales et légitimes",
+          "harmful": "Ne pas raccourcir d'URLs contenant du contenu nuisible, offensant ou illégal",
+          "spam": "Ne pas utiliser le service pour du spam ou des activités malveillantes",
+          "malware": "Ne pas raccourcir de liens dirigeant vers des logiciels malveillants ou des sites dangereux"
+        }
+      },
+      "prohibitedUse": {
+        "title": "Usage Interdit",
+        "content": "Il est interdit d'utiliser minLink pour :",
+        "items": {
+          "illegal": "Activités illégales ou qui violent les lois locales, nationales ou internationales",
+          "copyright": "Violations de droits d'auteur ou de propriété intellectuelle",
+          "phishing": "Tentatives de phishing, fraude ou vol d'identité",
+          "abuse": "Abus, harcèlement ou discrimination envers des individus ou groupes"
+        }
+      },
+      "serviceAvailability": {
+        "title": "Disponibilité du Service",
+        "content": "Bien que nous nous efforcions de maintenir le service disponible 24h/24 et 7j/7, nous ne garantissons pas une disponibilité ininterrompue. Nous pouvons suspendre temporairement le service pour maintenance ou mises à jour."
+      },
+      "limitation": {
+        "title": "Limitation de Responsabilité",
+        "content": "minLink est fourni 'tel quel' sans garanties d'aucune sorte. Nous ne sommes pas responsables des dommages directs, indirects ou consécutifs découlant de l'utilisation du service."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "content": "Nous nous réservons le droit de modifier ces Conditions d'Utilisation à tout moment. Les modifications prendront effet immédiatement après publication."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "Pour toute question concernant ces Conditions d'utilisation, contactez-nous via GitHub : https://github.com/gpaiva00"
+      },
+      "changes": {
+        "title": "Modifications des Conditions",
+        "content": "Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications prendront effet immédiatement après publication."
+      },
+      "limitations": {
+        "title": "Limitations du Service",
+        "content": "Le service peut avoir des limitations d'utilisation, de disponibilité et de fonctionnalité."
+      },
+      "intellectualProperty": {
+        "title": "Propriété Intellectuelle",
+        "content": "Tous les droits de propriété intellectuelle du service appartiennent à minLink."
+      },
+      "privacy": {
+        "title": "Confidentialité",
+        "content": "Votre confidentialité est importante pour nous. Veuillez consulter notre Politique de confidentialité."
+      },
+      "disclaimer": {
+        "title": "Avertissement",
+        "content": "Le service est fourni 'tel quel' sans aucune garantie."
+      },
+      "liability": {
+        "title": "Limitation de Responsabilité",
+        "content": "Nous ne sommes pas responsables des dommages résultant de l'utilisation de notre service."
+      },
+      "indemnification": {
+        "title": "Indemnisation",
+        "content": "Vous acceptez de nous indemniser contre toute réclamation résultant de votre utilisation du service."
+      },
+      "termination": {
+        "title": "Résiliation",
+        "content": "Nous pouvons résilier votre accès au service à tout moment."
+      },
+      "governingLaw": {
+        "title": "Loi Applicable",
+        "content": "Ces conditions sont régies par les lois du Brésil."
+      },
+      "usage": {
+        "title": "Utilisation Acceptable",
+        "content": "Vous devez utiliser notre service conformément aux lois et réglementations applicables."
+      },
+      "description": {
+        "title": "Description du Service",
+        "content": "minLink est un service de raccourcissement d'URL qui vous permet de créer des liens courts.",
+        "content1": "Notre plateforme offre une solution simple et efficace pour raccourcir vos URLs longues.",
+        "content2": "Avec minLink, vous pouvez facilement créer, gérer et suivre vos liens raccourcis.",
+        "list1": "Créer des liens courts pour des URLs longues",
+        "list2": "Suivre les clics et les statistiques des liens",
+        "list3": "Personnaliser les liens avec des alias uniques",
+        "list4": "Gérer et organiser vos liens"
+      }
+    }
+  },
+  "meta": {
+    "title": "minLink - Raccourcisseur d'URL Gratuit",
+    "description": "Raccourcissez vos URLs longues gratuitement. Rapide, sécurisé et illimité. Transformez les liens longs en URLs courtes et élégantes."
+  },
+  "preview": {
+    "loading": "Chargement...",
+    "linkPreview": "Aperçu du lien",
+    "checkDestination": "Vérifiez la destination avant de procéder",
+    "secure": "Sécurisé",
+    "notSecure": "Non sécurisé",
+    "copied": "Copié !",
+    "copy": "Copier",
+    "domain": "Domaine",
+    "clicks": "Clics",
+    "created": "Créé",
+    "locale": "Locale",
+    "createNewLink": "Créer un nouveau lien",
+    "goToSite": "Aller sur le site",
+    "preview": "Aperçu",
+    "redirectingTo": "Redirection vers {destination} dans {seconds} secondes..."
+  }
+}

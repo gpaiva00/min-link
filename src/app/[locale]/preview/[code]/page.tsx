@@ -11,6 +11,7 @@ import {
   ExternalLinkIcon,
   ShieldAlertIcon,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface PreviewPageProps {
   params: {
@@ -23,6 +24,8 @@ export default function PreviewPage({ params }: PreviewPageProps) {
   const [link, setLink] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+
+  const t = useTranslations("preview");
 
   useEffect(() => {
     async function fetchLink() {
@@ -59,7 +62,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Carregando...</p>
+          <p className="mt-4 text-gray-600">{t("loading")}</p>
         </div>
       </div>
     );
@@ -77,10 +80,10 @@ export default function PreviewPage({ params }: PreviewPageProps) {
       {/* Warning Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl md:text-6xl font-bold text-primary-500">
-          Prévia do Link
+          {t("linkPreview")}
         </h1>
         <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-          Verifique o destino antes de continuar
+          {t("checkDestination")}
         </p>
       </div>
 
@@ -113,7 +116,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
                     : "bg-yellow-100 text-yellow-800"
                 }`}
               >
-                {isSecure ? "Seguro" : "Não seguro"}
+                {isSecure ? t("secure") : t("notSecure")}
               </span>
             </div>
             <div className="gap-4 flex flex-col sm:flex-row items-center mb-4">
@@ -129,24 +132,29 @@ export default function PreviewPage({ params }: PreviewPageProps) {
                 {copied ? (
                   <>
                     <CheckIcon className="w-4 h-4" />
-                    <span>Copiado!</span>
+                    <span>{t("copied")}</span>
                   </>
                 ) : (
                   <>
                     <CopyIcon className="w-4 h-4" />
-                    <span>Copiar</span>
+                    <span>{t("copy")}</span>
                   </>
                 )}
               </button>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center sm:gap-4 text-sm text-gray-500">
-              <span>Domínio: {domain}</span>
-              <span>•</span>
-              <span>Cliques: {link.clicks}</span>
+              <span>
+                {t("domain")}: {domain}
+              </span>
               <span>•</span>
               <span>
-                Criado: {new Date(link.createdAt).toLocaleDateString("pt-BR")}
+                {t("clicks")}: {link.clicks}
+              </span>
+              <span>•</span>
+              <span>
+                {t("created")}:{" "}
+                {new Date(link.createdAt).toLocaleDateString(t("locale"))}
               </span>
             </div>
           </div>
@@ -169,7 +177,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link href="/" className="btn-outline">
-          Criar novo link
+          {t("createNewLink")}
         </Link>
         <Link
           href={`/go/${code}`}
@@ -177,7 +185,7 @@ export default function PreviewPage({ params }: PreviewPageProps) {
           className="btn-primary space-x-2"
         >
           <ExternalLinkIcon className="w-4 h-4 mr-2" />
-          Ir para o site
+          {t("goToSite")}
         </Link>
       </div>
 
@@ -212,25 +220,4 @@ export default function PreviewPage({ params }: PreviewPageProps) {
       </div> */}
     </div>
   );
-}
-
-// Generate metadata for SEO
-async function generateMetadata({ params }: PreviewPageProps) {
-  const { code } = params;
-  const link = await getLinkByCode(code);
-
-  if (!link) {
-    return {
-      title: "Link não encontrado",
-      description: "O link solicitado não foi encontrado.",
-    };
-  }
-
-  const domain = getDomainFromUrl(link.url);
-
-  return {
-    title: `Prévia: ${link.title || domain} | MinLink`,
-    description: `Você está sendo redirecionado para ${domain}. Verifique o destino antes de continuar.`,
-    robots: "noindex, nofollow",
-  };
 }

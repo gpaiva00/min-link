@@ -1,16 +1,20 @@
+const withNextIntl = require("next-intl/plugin")("./src/i18n.ts");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configurações de performance e SEO
   poweredByHeader: false,
   compress: true,
-  
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   // Configurações de imagem otimizadas
   images: {
     domains: ["localhost"],
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60,
   },
-  
+
   // Headers de segurança e SEO
   async headers() {
     return [
@@ -31,7 +35,8 @@ const nextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            value:
+              "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
           },
         ],
       },
@@ -63,7 +68,7 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // Redirects para SEO
   async redirects() {
     return [
@@ -84,8 +89,8 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // Configurações experimentais removidas para compatibilidade com Vercel
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);
