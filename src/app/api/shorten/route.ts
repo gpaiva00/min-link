@@ -114,9 +114,8 @@ export async function POST(request: NextRequest) {
       console.error("Failed to cache link:", error);
     }
 
-    // Return success response
-
-    return NextResponse.json({
+    // Return success response with rate limit headers
+    const response = NextResponse.json({
       success: true,
       data: {
         id: link.id,
@@ -132,6 +131,12 @@ export async function POST(request: NextRequest) {
         resetTime: rateLimitResult.resetTime,
       },
     });
+    
+    // Add rate limit headers
+    response.headers.set('X-RateLimit-Remaining', String(rateLimitResult.remaining - 1));
+    response.headers.set('X-RateLimit-Reset', String(rateLimitResult.resetTime));
+    
+    return response;
   } catch (error) {
     console.error("Error creating short link:", error);
 
