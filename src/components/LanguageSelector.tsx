@@ -59,7 +59,7 @@ export default function LanguageSelector({
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <span className="text-lg">{currentLanguage.flag}</span>
+        <span className="text-sm">{currentLanguage.flag}</span>
         <span className="hidden sm:block">{currentLanguage.name}</span>
         <svg
           className={`w-4 h-4 transition-transform ${

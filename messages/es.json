@@ -35,7 +35,7 @@
     "termsOfService": "Términos de Servicio"
   },
   "footer": {
-    "copyright": "© 2024 Min Link. Todos los derechos reservados.",
+    "copyright": "© 2024 minLink. Todos los derechos reservados.",
     "madeWith": "Hecho con ❤️ en Brasil",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio"
@@ -44,6 +44,7 @@
     "title": "Política de Privacidad",
     "description": "Política de privacidad de minLink - Cómo recopilamos, usamos y protegemos tus datos",
     "lastUpdated": "Última actualización",
+    "toc": "Tabla de Contenidos",
     "sections": {
       "introduction": {
         "title": "Introducción",
@@ -86,13 +87,18 @@
     }
   },
   "termsOfService": {
+    "pageTitle": "Términos de Servicio",
+    "pageDescription": "Reglas y condiciones para usar nuestro servicio de acortamiento de URL",
     "title": "Términos de Servicio",
     "description": "Términos de servicio de minLink - Reglas y condiciones de uso",
     "lastUpdated": "Última actualización",
+    "toc": "Tabla de Contenidos",
     "sections": {
       "acceptance": {
         "title": "Aceptación de Términos",
-        "content": "Al usar minLink, aceptas estos Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no uses nuestro servicio."
+        "content": "Al usar minLink, aceptas estos Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no uses nuestro servicio.",
+        "content1": "Al acceder y usar minLink, aceptas y acuerdas estar sujeto a los términos y condiciones de este Acuerdo de Términos de Servicio.",
+        "content2": "Si no estás de acuerdo con alguno de estos términos y condiciones, no debes usar este servicio."
       },
       "serviceDescription": {
         "title": "Descripción del Servicio",
@@ -133,11 +139,61 @@
       "contact": {
         "title": "Contacto",
         "content": "Para preguntas sobre estos Términos de Servicio, contáctanos a través de GitHub: https://github.com/gpaiva00"
+      },
+      "changes": {
+        "title": "Cambios en los Términos",
+        "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios serán efectivos inmediatamente después de su publicación."
+      },
+      "limitations": {
+        "title": "Limitaciones del Servicio",
+        "content": "El servicio puede tener limitaciones de uso, disponibilidad y funcionalidad."
+      },
+      "intellectualProperty": {
+        "title": "Propiedad Intelectual",
+        "content": "Todos los derechos de propiedad intelectual del servicio pertenecen a minLink."
+      },
+      "privacy": {
+        "title": "Privacidad",
+        "content": "Su privacidad es importante para nosotros. Por favor revise nuestra Política de Privacidad."
+      },
+      "disclaimer": {
+        "title": "Descargo de Responsabilidad",
+        "content": "El servicio se proporciona 'tal como está' sin ninguna garantía."
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "content": "No somos responsables de ningún daño que surja del uso de nuestro servicio."
+      },
+      "indemnification": {
+        "title": "Indemnización",
+        "content": "Usted acepta indemnizarnos contra cualquier reclamo que surja de su uso del servicio."
+      },
+      "termination": {
+        "title": "Terminación",
+        "content": "Podemos terminar su acceso al servicio en cualquier momento."
+      },
+      "governingLaw": {
+        "title": "Ley Aplicable",
+        "content": "Estos términos se rigen por las leyes de Brasil."
+      },
+      "usage": {
+        "title": "Uso Aceptable",
+        "content": "Debe usar nuestro servicio de acuerdo con las leyes y regulaciones aplicables."
+      },
+      "description": {
+        "title": "Descripción del Servicio",
+        "content": "minLink es un servicio de acortamiento de URL que le permite crear enlaces cortos.",
+        "content1": "Nuestra plataforma ofrece una solución simple y eficiente para acortar sus URLs largas.",
+        "content2": "Con minLink, puede crear, gestionar y rastrear fácilmente sus enlaces acortados.",
+        "list1": "Crear enlaces cortos para URLs largas",
+        "list2": "Rastrear clics y estadísticas de enlaces",
+        "list3": "Personalizar enlaces con alias únicos",
+        "list4": "Gestionar y organizar sus enlaces"
       }
     }
   },
   "meta": {
-    "title": "Min Link - Acortador de URLs Gratuito",
+    "title": "minLink - Acortador de URLs Gratuito",
     "description": "Acorta tus URLs largas gratis. Rápido, seguro y sin límites. Transforma enlaces largos en URLs cortas y elegantes."
   },
   "preview": {

@@ -35,7 +35,7 @@
     "termsOfService": "Conditions d'utilisation"
   },
   "footer": {
-    "copyright": "© 2024 Min Link. Tous droits réservés.",
+    "copyright": "© 2024 minLink. Tous droits réservés.",
     "madeWith": "Fait avec ❤️ au Brésil",
     "privacyPolicy": "Politique de confidentialité",
     "termsOfService": "Conditions d'utilisation"
@@ -44,6 +44,7 @@
     "title": "Politique de Confidentialité",
     "description": "Politique de confidentialité de minLink - Comment nous collectons, utilisons et protégeons vos données",
     "lastUpdated": "Dernière mise à jour",
+    "toc": "Table des matières",
     "sections": {
       "introduction": {
         "title": "Introduction",
@@ -86,13 +87,18 @@
     }
   },
   "termsOfService": {
+    "pageTitle": "Conditions d'Utilisation",
+    "pageDescription": "Règles et conditions pour utiliser notre service de raccourcissement d'URL",
     "title": "Conditions d'Utilisation",
     "description": "Conditions d'utilisation de minLink - Règles et conditions d'usage",
     "lastUpdated": "Dernière mise à jour",
+    "toc": "Table des matières",
     "sections": {
       "acceptance": {
         "title": "Acceptation des Conditions",
-        "content": "En utilisant minLink, vous acceptez ces Conditions d'Utilisation. Si vous n'acceptez pas une partie de ces conditions, n'utilisez pas notre service."
+        "content": "En utilisant minLink, vous acceptez ces Conditions d'Utilisation. Si vous n'acceptez pas une partie de ces conditions, n'utilisez pas notre service.",
+        "content1": "En accédant et en utilisant minLink, vous acceptez et convenez d'être lié par les termes et conditions de cet Accord de Conditions d'Utilisation.",
+        "content2": "Si vous n'acceptez pas l'un de ces termes et conditions, vous ne devez pas utiliser ce service."
       },
       "serviceDescription": {
         "title": "Description du Service",
@@ -132,12 +138,62 @@
       },
       "contact": {
         "title": "Contact",
-        "content": "Pour des questions concernant ces Conditions d'Utilisation, contactez-nous via GitHub : https://github.com/gpaiva00"
+        "content": "Pour toute question concernant ces Conditions d'utilisation, contactez-nous via GitHub : https://github.com/gpaiva00"
+      },
+      "changes": {
+        "title": "Modifications des Conditions",
+        "content": "Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications prendront effet immédiatement après publication."
+      },
+      "limitations": {
+        "title": "Limitations du Service",
+        "content": "Le service peut avoir des limitations d'utilisation, de disponibilité et de fonctionnalité."
+      },
+      "intellectualProperty": {
+        "title": "Propriété Intellectuelle",
+        "content": "Tous les droits de propriété intellectuelle du service appartiennent à minLink."
+      },
+      "privacy": {
+        "title": "Confidentialité",
+        "content": "Votre confidentialité est importante pour nous. Veuillez consulter notre Politique de confidentialité."
+      },
+      "disclaimer": {
+        "title": "Avertissement",
+        "content": "Le service est fourni 'tel quel' sans aucune garantie."
+      },
+      "liability": {
+        "title": "Limitation de Responsabilité",
+        "content": "Nous ne sommes pas responsables des dommages résultant de l'utilisation de notre service."
+      },
+      "indemnification": {
+        "title": "Indemnisation",
+        "content": "Vous acceptez de nous indemniser contre toute réclamation résultant de votre utilisation du service."
+      },
+      "termination": {
+        "title": "Résiliation",
+        "content": "Nous pouvons résilier votre accès au service à tout moment."
+      },
+      "governingLaw": {
+        "title": "Loi Applicable",
+        "content": "Ces conditions sont régies par les lois du Brésil."
+      },
+      "usage": {
+        "title": "Utilisation Acceptable",
+        "content": "Vous devez utiliser notre service conformément aux lois et réglementations applicables."
+      },
+      "description": {
+        "title": "Description du Service",
+        "content": "minLink est un service de raccourcissement d'URL qui vous permet de créer des liens courts.",
+        "content1": "Notre plateforme offre une solution simple et efficace pour raccourcir vos URLs longues.",
+        "content2": "Avec minLink, vous pouvez facilement créer, gérer et suivre vos liens raccourcis.",
+        "list1": "Créer des liens courts pour des URLs longues",
+        "list2": "Suivre les clics et les statistiques des liens",
+        "list3": "Personnaliser les liens avec des alias uniques",
+        "list4": "Gérer et organiser vos liens"
       }
     }
   },
   "meta": {
-    "title": "Min Link - Raccourcisseur d'URL Gratuit",
+    "title": "minLink - Raccourcisseur d'URL Gratuit",
     "description": "Raccourcissez vos URLs longues gratuitement. Rapide, sécurisé et illimité. Transformez les liens longs en URLs courtes et élégantes."
   },
   "preview": {
